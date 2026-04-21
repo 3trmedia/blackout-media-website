@@ -21,7 +21,7 @@
       id="hero-poster"
     />
     <div class="absolute inset-0 bg-black-950/60"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black-950"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-60% to-black-950/80"></div>
   </div>
 
   <!-- Content -->
@@ -71,11 +71,15 @@
   </div>
 
   <!-- Scroll cue -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-    <svg class="w-5 h-5 text-brass-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+  <a
+    href="#services"
+    aria-label="Scroll to services"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer"
+  >
+    <svg class="w-10 h-10 text-brass-500/70 hover:text-brass-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
     </svg>
-  </div>
+  </a>
 
 </section>
 
