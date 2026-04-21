@@ -41,7 +41,9 @@ const services = [
           alt={s.title.replace('\n', ' ')}
           class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <!-- Brass tint on hover only -->
+        <!-- Permanent dark overlay for readability -->
+        <div class="absolute inset-0 bg-black-950/15"></div>
+        <!-- Brass tint on hover -->
         <div class="absolute inset-0 bg-brass-500/0 group-hover:bg-brass-500/10 transition-colors duration-400"></div>
 
         <!-- Label: centered, slides up on hover, description appears below -->
