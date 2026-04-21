@@ -9,14 +9,23 @@ mkdirSync(`${DEST}/images`, { recursive: true });
 mkdirSync(`${DEST}/logos`, { recursive: true });
 
 const photos = [
-  { src: 'Stock Photos/pexels-dbgalvanis-5894622.jpg',       dest: 'images/services-courses.jpg' },
-  { src: 'Stock Photos/pexels-dbgalvanis-5894624.jpg',       dest: 'images/services-social.jpg' },
-  { src: 'Stock Photos/pexels-dbgalvanis-5910472.jpg',       dest: 'images/services-sales.jpg' },
-  { src: 'Stock Photos/Product Photos Gun.jpg',               dest: 'images/services-products.jpg' },
-  { src: 'Stock Photos/pexels-dbgalvanis-9037522.jpg',       dest: 'images/hero-poster.jpg' },
-  { src: 'Stock Photos/pexels-marc-sartain-2148108718-29922085.jpg', dest: 'images/about-photo.jpg' },
-  { src: 'Stock Photos/pexels-dbgalvanis-6621958.jpg',       dest: 'images/about-action.jpg' },
-  { src: 'Stock Photos/thomas-tucker-qnpAJnuPBd0-unsplash.jpg', dest: 'images/cta-bg.jpg' },
+  // Service card photos — real client shots take priority
+  { src: 'Stock Photos/222A1413.jpg',                              dest: 'images/services-social.jpg' },
+  { src: 'Stock Photos/222A1518.jpg',                              dest: 'images/services-courses.jpg' },
+  { src: 'Stock Photos/222A1556.jpg',                              dest: 'images/services-sales.jpg' },
+  { src: 'Stock Photos/Product Photos Gun.jpg',                    dest: 'images/services-products.jpg' },
+  // Hero poster fallback
+  { src: 'Stock Photos/pexels-dbgalvanis-9037522.jpg',            dest: 'images/hero-poster.jpg' },
+  // About section
+  { src: 'Stock Photos/Noah Instructing.JPG',                      dest: 'images/about-photo.jpg' },
+  { src: 'Stock Photos/TAR Flag Group Photo.JPG',                  dest: 'images/about-action.jpg' },
+  // CTA background
+  { src: 'Stock Photos/pexels-marc-sartain-2148108718-29922085.jpg', dest: 'images/cta-bg.jpg' },
+  // Video stills — extras for portfolio/work section later
+  { src: 'Stock Photos/Still 2026-01-09 144727_3.11.2.jpg',       dest: 'images/still-1.jpg' },
+  { src: 'Stock Photos/Still 2026-02-07 211810_1.9.1.jpg',        dest: 'images/still-2.jpg' },
+  { src: 'Stock Photos/Still 2026-03-13 154410_2.34.1.jpg',       dest: 'images/still-3.jpg' },
+  { src: 'Stock Photos/Noah and His Rifle.JPG',                    dest: 'images/noah-rifle.jpg' },
 ];
 
 const logos = [

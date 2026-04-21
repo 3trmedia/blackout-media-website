@@ -16,6 +16,7 @@
   --color-gray-400: #9a9a95;
 
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
 }
 
 @layer base {
@@ -28,5 +29,9 @@
 
   * {
     box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 }

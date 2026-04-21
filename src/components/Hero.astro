@@ -14,52 +14,57 @@
       allow="autoplay; encrypted-media"
       title="Background video"
     ></iframe>
-    <!-- Fallback poster shown before video loads -->
     <img
       src="/images/hero-poster.jpg"
       alt=""
-      class="absolute inset-0 w-full h-full object-cover opacity-50"
+      class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-1000"
       id="hero-poster"
     />
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black-950/65"></div>
+    <div class="absolute inset-0 bg-black-950/60"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black-950"></div>
   </div>
 
   <!-- Content -->
   <div class="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-24 text-center">
 
-    <p class="text-brass-500 text-xs font-bold uppercase tracking-[0.3em] mb-5">
+    <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.35em] mb-5 font-sans">
       Utah's Dedicated Firearms Marketing Agency
     </p>
 
-    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white-100 leading-[1.05] mb-6">
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white-100 leading-[1.08] mb-6">
       More Sales.<br />
       More Customers.<br />
       <span class="text-brass-500">More Courses Filled.</span>
     </h1>
 
-    <p class="text-lg md:text-xl text-white-200/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+    <p class="text-lg md:text-xl text-white-200/65 max-w-2xl mx-auto mb-12 leading-relaxed font-sans">
       Blackout Media produces the content, social strategy, and digital presence that gun manufacturers, ranges, and training companies need to grow — without getting flagged, shadow banned, or outpaced.
     </p>
 
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#work" class="bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-8 py-4 uppercase tracking-wider text-sm transition-colors w-full sm:w-auto text-center">
-        See Our Work
-      </a>
-      <a href="#contact" class="border border-white-100/25 hover:border-brass-500 text-white-100 hover:text-brass-500 font-bold px-8 py-4 uppercase tracking-wider text-sm transition-colors w-full sm:w-auto text-center">
+    <!-- Separated square buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+      <a
+        href="#contact"
+        class="bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-[0.15em] text-sm transition-colors w-full sm:w-56 text-center font-sans"
+      >
         Work With Us
+      </a>
+      <a
+        href="#work"
+        class="border-2 border-white-100/30 hover:border-brass-500 hover:text-brass-500 text-white-100 font-bold px-10 py-4 uppercase tracking-[0.15em] text-sm transition-colors w-full sm:w-56 text-center font-sans"
+      >
+        See Our Work
       </a>
     </div>
 
     <!-- Trusted by -->
-    <div class="mt-16 pt-12 border-t border-white-100/10">
-      <p class="text-white-200/40 text-xs uppercase tracking-[0.25em] mb-8">Trusted By</p>
-      <div class="flex items-center justify-center gap-10 md:gap-16 flex-wrap">
-        <img src="/logos/ntac-logo-shield-3d.png" alt="NTAC" class="h-10 object-contain opacity-50 hover:opacity-80 transition-opacity" />
-        <img src="/logos/iron-rescue-logo.png" alt="Iron Rescue" class="h-8 object-contain opacity-50 hover:opacity-80 transition-opacity" />
-        <img src="/logos/ft-logo_white_280x80_1.png" alt="First Tactical" class="h-7 object-contain opacity-50 hover:opacity-80 transition-opacity" />
-        <img src="/logos/white-logo-axil.png" alt="AXIL" class="h-7 object-contain opacity-50 hover:opacity-80 transition-opacity" />
+    <div class="mt-20 pt-10 border-t border-white-100/10">
+      <p class="text-white-200/35 text-xs uppercase tracking-[0.3em] mb-8 font-sans">Trusted By</p>
+      <div class="flex items-center justify-center gap-10 md:gap-14 flex-wrap">
+        <img src="/logos/ntac-logo-shield-3d.png"     alt="NTAC"           class="h-14 object-contain opacity-55 hover:opacity-85 transition-opacity" />
+        <img src="/logos/iron-rescue-logo.png"         alt="Iron Rescue"    class="h-11 object-contain opacity-55 hover:opacity-85 transition-opacity" />
+        <img src="/logos/ft-logo_white_280x80_1.png"  alt="First Tactical" class="h-10 object-contain opacity-55 hover:opacity-85 transition-opacity" />
+        <img src="/logos/white-logo-axil.png"          alt="AXIL"           class="h-10 object-contain opacity-55 hover:opacity-85 transition-opacity" />
       </div>
     </div>
 
@@ -75,12 +80,11 @@
 </section>
 
 <script>
-  // Hide poster once video iframe is ready
   const poster = document.getElementById('hero-poster');
   const video = document.getElementById('hero-video');
   if (video && poster) {
     video.addEventListener('load', () => {
-      setTimeout(() => poster.style.opacity = '0', 1000);
+      setTimeout(() => { (poster as HTMLElement).style.opacity = '0'; }, 1200);
     });
   }
 </script>
