@@ -1,0 +1,56 @@
+---
+---
+
+<section id="about" class="bg-black-950 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Text -->
+      <div>
+        <p class="text-brass-500 text-xs font-bold uppercase tracking-[0.3em] mb-4">We're Here to Serve You</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white-100 leading-tight mb-6">
+          Your Website Should Do More Than Look Good
+        </h2>
+        <p class="text-white-200/65 text-lg leading-relaxed mb-8">
+          It should make people take action. We design digital presences that are easy to use, built for the firearms industry, and engineered to convert visitors into paying customers.
+        </p>
+
+        <ul class="space-y-4 mb-10">
+          {[
+            "Impactful videos showcasing your company's values and capabilities",
+            "Product photography that highlights your gear and drives purchase decisions",
+            "Intuitive designs that guide visitors toward the next step",
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 w-4 h-4 rounded-full bg-brass-500/20 border border-brass-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-2.5 h-2.5 text-brass-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="text-white-200/70 leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href="#contact" class="inline-flex items-center gap-2 text-brass-500 hover:text-brass-400 font-bold uppercase tracking-wider text-sm transition-colors">
+          Learn More
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Photo -->
+      <div class="relative">
+        <div class="absolute -top-4 -left-4 w-full h-full border border-brass-500/20"></div>
+        <img
+          src="/images/about-photo.jpg"
+          alt="Blackout Media in the field"
+          class="relative w-full aspect-[4/5] object-cover"
+        />
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black-950/80 to-transparent"></div>
+      </div>
+
+    </div>
+  </div>
+</section>

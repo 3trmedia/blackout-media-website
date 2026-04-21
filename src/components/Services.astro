@@ -1,0 +1,58 @@
+---
+const services = [
+  {
+    title: "Grow Your Social Media",
+    img: "/images/services-social.jpg",
+    desc: "Platform-compliant content that builds real audiences without triggering shadowbans, flags, or restrictions.",
+  },
+  {
+    title: "Fill Your Courses",
+    img: "/images/services-courses.jpg",
+    desc: "Targeted video campaigns that put your training programs in front of students who are ready to enroll.",
+  },
+  {
+    title: "Highlight Your Products",
+    img: "/images/services-products.jpg",
+    desc: "Photo and video that showcases your gear the way it deserves — sharp, professional, and built to convert.",
+  },
+  {
+    title: "Increase Your Sales",
+    img: "/images/services-sales.jpg",
+    desc: "Full-funnel strategies that turn your website and social presence into a consistent revenue engine.",
+  },
+];
+---
+
+<section id="services" class="bg-black-900 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="text-center mb-14">
+      <p class="text-brass-500 text-xs font-bold uppercase tracking-[0.3em] mb-3">What We Do</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white-100">Built for the Firearms Industry</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5">
+      {services.map((s) => (
+        <div class="relative group overflow-hidden aspect-[3/4]">
+          <img
+            src={s.img}
+            alt={s.title}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/50 to-transparent"></div>
+          <div class="absolute inset-0 bg-brass-500/0 group-hover:bg-brass-500/10 transition-colors duration-500"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="w-8 h-0.5 bg-brass-500 mb-3 transition-all duration-300 group-hover:w-12"></div>
+            <h3 class="text-white-100 font-black text-lg uppercase tracking-wide leading-tight mb-2">
+              {s.title}
+            </h3>
+            <p class="text-white-200/60 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-24 overflow-hidden">
+              {s.desc}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
