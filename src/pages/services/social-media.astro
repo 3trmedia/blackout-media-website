@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
@@ -8,21 +9,20 @@ import Footer from '../../components/Footer.astro';
   <Nav />
   <main>
 
-    <!-- HERO -->
-    <section class="relative min-h-[75vh] flex items-center overflow-hidden">
+    <!-- 1. HERO -->
+    <section class="relative min-h-[80vh] flex items-center overflow-hidden">
       <div class="absolute inset-0">
         <img src="/images/services-social.jpg" alt="Social Media for Firearms Brands" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black-950/65"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-black-950/80 via-black-950/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-black-950/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black-950/85 via-black-950/50 to-black-950/20"></div>
       </div>
-      <div class="relative z-10 max-w-5xl mx-auto px-6 pt-28">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-5 font-sans">Social Media</p>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white-100 leading-tight mb-6 max-w-2xl">
-          Your Audience Is Out There.<br />They Just Can't Find You.
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pt-24">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white-100 leading-tight mb-5 max-w-3xl">
+          Time to Give Your Brand the Spotlight It Deserves.
         </h1>
-        <p class="text-white-200/70 text-lg md:text-xl font-sans max-w-xl mb-10 leading-relaxed">
-          We build and manage social media for firearms brands that can't afford to get flagged, shadowbanned, or ignored.
-        </p>
+        <h2 class="text-2xl md:text-3xl font-medium text-white-200/70 mb-10 max-w-xl leading-snug">
+          We Handle the Content. You Build the Reputation.
+        </h2>
         <a href="/contact" class="inline-flex items-center gap-2 bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-8 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
           Let's Talk
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,147 +32,118 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- SECTION 1 — The Problem -->
-    <section class="bg-black-950 py-24">
-      <div class="max-w-3xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-6 font-sans">The Problem</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-6 leading-tight">
-          Most Firearms Brands Are Playing by the Wrong Rules
+    <!-- 2. PROBLEM STATEMENT -->
+    <section class="bg-black-950 py-28 border-t border-white-100/5">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white-100 leading-tight">
+          You Run Your Business.<br />We'll Create the Content.
         </h2>
-        <p class="text-white-200/65 text-xl leading-relaxed font-sans">
-          The platforms that penalize your industry aren't going anywhere. Neither is your need to grow. The brands winning on social aren't posting more — they're posting smarter. We know what works, what gets flagged, and how to build an audience that actually buys.
-        </p>
       </div>
     </section>
 
-    <!-- SECTION 2 — What We Do -->
-    <section class="bg-black-900 py-24 border-t border-white-100/5">
-      <div class="max-w-6xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What We Do</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-14">Five Types of Content. One Consistent Presence.</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white-100/5">
+    <!-- 3. WORK EXAMPLES GRID -->
+    <section class="bg-black-900 py-20 border-t border-white-100/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Work Examples</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            {
-              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" /></svg>`,
-              title: "Cinematic Hype",
-              desc: "High-production brand moments that stop the scroll"
-            },
-            {
-              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="1.5" /><circle cx="12" cy="12" r="3" stroke-width="1.5" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2M12 19v2M3 12h2M19 12h2" /></svg>`,
-              title: "Real World Experience",
-              desc: "Reactions, results, and honest field use"
-            },
-            {
-              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>`,
-              title: "Quick Teaching Tips",
-              desc: "Bite-sized expertise that builds authority"
-            },
-            {
-              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
-              title: "Student Snippets",
-              desc: "Social proof from the range floor"
-            },
-            {
-              icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" /></svg>`,
-              title: "Courses and Offerings",
-              desc: "Direct promotion that doesn't feel like an ad"
-            },
+            { img: '/images/still-1.jpg',          client: 'NTAC' },
+            { img: '/images/still-2.jpg',          client: 'Iron Rescue' },
+            { img: '/images/still-3.jpg',          client: 'The Art Room' },
+            { img: '/images/services-social.jpg',  client: 'NTAC' },
+            { img: '/images/about-action.jpg',     client: 'Peak Defense Works' },
+            { img: '/images/noah-rifle.jpg',       client: 'Iron Rescue' },
           ].map((item) => (
-            <div class="bg-black-900 p-8 flex flex-col gap-4">
-              <div class="text-brass-500" set:html={item.icon} />
-              <h3 class="text-white-100 font-bold text-base leading-snug">{item.title}</h3>
-              <p class="text-gray-400 text-sm leading-relaxed font-sans">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3 — Who This Is For -->
-    <section class="bg-black-950 py-0">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
-        <div class="px-8 lg:px-16 py-24 flex flex-col justify-center">
-          <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-6 font-sans">Who This Is For</p>
-          <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-6 leading-tight">
-            Built for Brands the Algorithm Doesn't Like
-          </h2>
-          <p class="text-white-200/65 text-lg leading-relaxed font-sans">
-            If you run a range, training company, manufacturer, or tactical retailer — you already know the frustration. Posts get buried. Accounts get restricted. Generic marketing agencies don't understand your product and are scared to touch it.
-          </p>
-          <p class="text-white-200/65 text-lg leading-relaxed font-sans mt-4">
-            We're not. This is the only industry we serve.
-          </p>
-        </div>
-        <div class="relative min-h-[400px] lg:min-h-0">
-          <img src="/images/still-1.jpg" alt="Firearms range content" class="w-full h-full object-cover absolute inset-0" />
-          <div class="absolute inset-0 bg-black-950/20"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4 — What's Included -->
-    <section class="bg-black-900 py-24 border-t border-white-100/5">
-      <div class="max-w-4xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">What You Get</h2>
-        <div class="flex flex-col divide-y divide-white-100/5">
-          {[
-            "Monthly content calendar built around your schedule and offerings",
-            "Filming coordination and shot direction on location",
-            "Editing, captions, and platform-optimized formatting",
-            "Posting and scheduling across platforms",
-            "Strategy adjustments based on what's actually performing",
-          ].map((item) => (
-            <div class="flex items-start gap-5 py-5">
-              <div class="w-1.5 h-1.5 rounded-full bg-brass-500 flex-shrink-0 mt-2.5"></div>
-              <p class="text-white-200/80 text-lg font-sans leading-relaxed">{item}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5 — Proof / Results -->
-    <section class="bg-black-950 py-24 border-t border-white-100/5">
-      <div class="max-w-6xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Results</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">Work That Speaks for Itself</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { img: '/images/still-1.jpg', client: 'NTAC', result: 'Ongoing content strategy and filming cadence built around weekly range days' },
-            { img: '/images/still-2.jpg', client: 'Iron Rescue', result: 'TECC awareness content series, Google Business optimization, and local SEO' },
-            { img: '/images/still-3.jpg', client: 'The Art Room', result: '170K+ views on first Instagram video — zero paid promotion' },
-          ].map((item) => (
-            <div class="group">
-              <div class="relative overflow-hidden aspect-video mb-4">
-                <img src={item.img} alt={item.client} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-black-950/20 group-hover:bg-black-950/10 transition-colors duration-300"></div>
+            <div>
+              <div class="aspect-video overflow-hidden bg-black-800">
+                <img src={item.img} alt={item.client} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
-              <p class="text-brass-500 font-bold text-sm uppercase tracking-wider font-sans mb-1">{item.client}</p>
-              <p class="text-white-200/60 text-sm font-sans leading-relaxed">{item.result}</p>
+              <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6 — CTA -->
-    <section class="bg-black-900 py-28 border-t border-white-100/5">
-      <div class="max-w-2xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-white-100 mb-5 leading-tight">
-          Ready to Stop Getting Buried?
-        </h2>
-        <p class="text-white-200/60 text-xl mb-10 font-sans">
-          Let's build a social presence your competitors can't ignore.
-        </p>
-        <a href="/contact" class="inline-flex items-center gap-2 bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
-          Start the Conversation
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
+    <!-- 4. WHAT'S INCLUDED — 6 ICON CARDS -->
+    <section class="bg-black-950 py-20 border-t border-white-100/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-14">Everything You Need. Nothing You Don't.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white-100/5">
+
+          <!-- Card 1 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Content Strategy and Planning</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">A monthly roadmap built around your brand, your audience, and what's actually working.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Filming Coordination and Shot Direction</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">We handle the shoot, locations, angles, timing — so you just show up and do what you do.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Editing and Platform Optimization</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Every clip cut and formatted for the platform it lives on. No recycled content, no lazy reposts.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Posting and Scheduling</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Consistent presence without you lifting a finger. We handle the calendar, the captions, everything.</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Brand Partnership Integration</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Sponsorships and partnerships woven naturally into your content without feeling like an ad.</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Analytics and Performance Tracking</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Monthly reporting on what's growing, what's working, and where we push next.</p>
+          </div>
+
+        </div>
       </div>
     </section>
+
+    <!-- 5. CONTACT FORM -->
+    <Contact />
 
   </main>
   <Footer />
