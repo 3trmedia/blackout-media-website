@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Course Marketing | Blackout Media" description="Turn your firearms course into a content ecosystem that fills seats. Built for ranges, instructors, and training companies.">
+  <Nav />
+  <main>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-end overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/images/services-courses.jpg" alt="Course Marketing" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black-950/65"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-16 pt-32">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Course Marketing</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white-100 leading-tight mb-4">
+          Your Course Is Good.<br />People Just Don't Know It.
+        </h1>
+        <p class="text-white-200/65 text-xl font-sans">We create the demand. You fill the seats.</p>
+      </div>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Who This Is For</p>
+        <p class="text-white-200/75 text-xl leading-relaxed font-sans">
+          Firearms instructors, ranges, and training companies whose courses aren't filling consistently. If you're relying on word-of-mouth and hoping students find you, you're leaving seats empty. We handle demand creation — not just demand capture.
+        </p>
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="bg-black-900 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">From Course to Content Ecosystem</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { num: "01", title: "Course Promo Video", desc: "A high-production video that sells the experience before students show up." },
+            { num: "02", title: "Social Media Campaign", desc: "Short-form content series built around your course — teasers, snippets, and student POV." },
+            { num: "03", title: "Landing Page Copy and SEO", desc: "Your course page rewritten to rank on Google and convert when people arrive." },
+            { num: "04", title: "Student Testimonial Capture", desc: "We capture testimonials on filming days and edit them into social-ready proof content." },
+          ].map((item) => (
+            <div class="bg-black-800 border border-white-100/5 p-6 flex gap-5">
+              <span class="text-brass-500 font-bold text-2xl font-heading mt-1">{item.num}</span>
+              <div>
+                <h3 class="text-white-100 font-bold text-lg mb-2">{item.title}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-sans">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Proof Clients</p>
+        <h2 class="text-3xl font-bold text-white-100 mb-10">Courses We've Worked With</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { client: "NTAC", sub: "Nielsen Training and Consulting", result: "Full content strategy and landing page rebuild. Filming cadence established around weekly range days. SEO structure built for Beginner Handgun and advanced courses." },
+            { client: "The Art Room", sub: "Firearms Range and Training", result: "First video produced: 170K+ Instagram views. Zero ad spend. Instructor credibility established through content in one shoot." },
+            { client: "Iron Rescue", sub: "TECC and Medical Training", result: "Documentation and photography from live courses. Google Business optimization and content built around Easton's Army Medic background." },
+          ].map((p) => (
+            <div class="border-t-2 border-brass-500 pt-6">
+              <p class="text-brass-500 font-bold text-sm uppercase tracking-wider mb-1 font-sans">{p.client}</p>
+              <p class="text-gray-400 text-xs uppercase tracking-wider mb-3 font-sans">{p.sub}</p>
+              <p class="text-white-200/70 text-sm leading-relaxed font-sans">{p.result}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-black-900 py-20 border-t border-white-100/5">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-white-100 mb-4">Let's Fill Your Next Class</h2>
+        <p class="text-white-200/60 text-lg mb-8 font-sans">Tell us about your course. We'll show you what a full content rollout looks like.</p>
+        <a href="/contact" class="inline-block bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

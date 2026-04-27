@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Product Media | Blackout Media" description="Photography and video for firearms manufacturers, retailers, and ranges. Built to move product.">
+  <Nav />
+  <main>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-end overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/images/services-products.jpg" alt="Product Media" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black-950/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-16 pt-32">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Product Media</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white-100 leading-tight mb-4">
+          Your Product Photos<br />Are Costing You Sales
+        </h1>
+        <p class="text-white-200/65 text-xl font-sans">Gear that looks like it belongs in a catalog sells. Gear that looks like a cell phone shot doesn't.</p>
+      </div>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Who This Is For</p>
+        <p class="text-white-200/75 text-xl leading-relaxed font-sans">
+          Manufacturers, retailers, and ranges who know their product is quality but whose photos don't show it. If your gear is sitting on a plastic table in front of a garage wall, you're competing with brands that invest in presentation — and losing.
+        </p>
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="bg-black-900 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">Three Shoot Formats. All Deliverable-Ready.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { num: "01", title: "Studio", desc: "Clean, controlled product photography optimized for websites, e-commerce, and ads. Consistent lighting. No distractions." },
+            { num: "02", title: "Field and Lifestyle", desc: "Your gear in the environment it was built for. Tactical, real, and built to perform on social media and brand campaigns." },
+            { num: "03", title: "Short-Form Product Video", desc: "15-60 second product showcases built for Instagram Reels, YouTube Shorts, and website embeds. Edited and delivered ready to post." },
+          ].map((item) => (
+            <div class="bg-black-800 border border-white-100/5 p-6">
+              <span class="text-brass-500 font-bold text-xs uppercase tracking-widest font-sans">{item.num}</span>
+              <h3 class="text-white-100 font-bold text-lg mt-2 mb-2">{item.title}</h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-sans">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-gray-400 text-sm mt-8 font-sans">All assets delivered in web, social, and print-ready formats. No extra editing fees.</p>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Work Samples</p>
+        <h2 class="text-3xl font-bold text-white-100 mb-10">Gear We've Captured</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img src="/images/services-products.jpg" alt="Product media sample" class="w-full aspect-video object-cover" />
+          <img src="/images/noah-rifle.jpg" alt="Field media sample" class="w-full aspect-video object-cover" />
+        </div>
+        <p class="text-gray-400 text-sm mt-6 font-sans">Full portfolio available on the <a href="/portfolio" class="text-brass-500 hover:text-brass-400 transition-colors">Portfolio page</a>.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-black-900 py-20 border-t border-white-100/5">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-white-100 mb-4">Let's Make Your Gear Look the Part</h2>
+        <p class="text-white-200/60 text-lg mb-8 font-sans">Tell us what you're shooting and what you need it for. We'll handle the rest.</p>
+        <a href="/contact" class="inline-block bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
+          Book a Shoot
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

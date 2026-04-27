@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Social Media | Blackout Media" description="Platform-compliant social media content for the firearms industry. Built for ranges, manufacturers, and training companies.">
+  <Nav />
+  <main>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-end overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/images/services-social.jpg" alt="Social Media" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black-950/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-16 pt-32">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Social Media</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white-100 leading-tight mb-4">
+          Build an Audience<br />Other Agencies Won't Touch
+        </h1>
+        <p class="text-white-200/65 text-xl font-sans">Platform-compliant content that grows real followings in the firearms space.</p>
+      </div>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Who This Is For</p>
+        <p class="text-white-200/75 text-xl leading-relaxed font-sans">
+          Gun ranges, manufacturers, and training companies who know their content keeps getting flagged, throttled, or ignored. If you've had posts removed, ad accounts restricted, or you're just not seeing growth despite consistent posting — this is built for you.
+        </p>
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="bg-black-900 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">A Content System Built Around Five Proven Formats</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { num: "01", title: "Cinematic Hype", desc: "High-production video built to stop the scroll and trigger shares." },
+            { num: "02", title: "Real World Reactions", desc: "Authentic field content showing your product or course in use." },
+            { num: "03", title: "Quick Teaching Tips", desc: "Short-form education that builds authority and drives follows." },
+            { num: "04", title: "Student POV Snippets", desc: "Social proof from inside the experience — the most trusted format." },
+            { num: "05", title: "Course and Offer Promotion", desc: "Compliant promotional content that drives enrollment without triggering platform restrictions." },
+          ].map((item) => (
+            <div class="bg-black-800 border border-white-100/5 p-6">
+              <span class="text-brass-500 font-bold text-xs uppercase tracking-widest font-sans">{item.num}</span>
+              <h3 class="text-white-100 font-bold text-lg mt-2 mb-2">{item.title}</h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-sans">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Real Results</p>
+        <h2 class="text-3xl font-bold text-white-100 mb-10">We've Done This Before</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { client: "The Art Room", result: "170K+ views on first Instagram video. Zero paid promotion. Owner negotiated ongoing contract after the first post." },
+            { client: "Uptown Drapes", result: "50K followers built. 3M+ total views. 3X viewership in month one." },
+            { client: "NTAC", result: "Content strategy and filming cadence built around Tuesday range days — repurposed into full monthly content calendars." },
+          ].map((p) => (
+            <div class="border-t-2 border-brass-500 pt-6">
+              <p class="text-brass-500 font-bold text-sm uppercase tracking-wider mb-3 font-sans">{p.client}</p>
+              <p class="text-white-200/70 text-sm leading-relaxed font-sans">{p.result}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-black-900 py-20 border-t border-white-100/5">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-white-100 mb-4">Ready to Build Something That Grows?</h2>
+        <p class="text-white-200/60 text-lg mb-8 font-sans">Tell us about your brand. We'll tell you what we'd do with it.</p>
+        <a href="/contact" class="inline-block bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
+          Start the Conversation
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

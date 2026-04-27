@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Website Conversions | Blackout Media" description="Your website exists. It's just not working. We fix firearms industry sites that aren't converting.">
+  <Nav />
+  <main>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-end overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="/images/cta-bg.jpg" alt="Website Conversions" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black-950/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-16 pt-32">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Website Conversions</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white-100 leading-tight mb-4">
+          Your Website Exists.<br />It's Just Not Working.
+        </h1>
+        <p class="text-white-200/65 text-xl font-sans">We don't just build sites. We fix sites that aren't converting.</p>
+      </div>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Who This Is For</p>
+        <p class="text-white-200/75 text-xl leading-relaxed font-sans">
+          Ranges, manufacturers, and training companies who have a website but aren't seeing leads, bookings, or sales from it. If people are landing on your site and leaving without taking action, the site is the problem — and it's fixable.
+        </p>
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="bg-black-900 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">Five Levers That Move the Needle</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { num: "01", title: "SEO Structure", desc: "Keyword targeting, on-page optimization, and technical fixes that get you found on Google." },
+            { num: "02", title: "Landing Page Copy", desc: "Every word rewritten around outcomes. Headlines that convert. CTAs that get clicked." },
+            { num: "03", title: "Conversion Optimization", desc: "Layout, flow, and friction audit. We identify where people drop off and fix it." },
+            { num: "04", title: "Google Business Optimization", desc: "Local SEO and Google Business profile built to rank for searches in your area." },
+            { num: "05", title: "Product Page Refinement", desc: "For retailers and manufacturers: product pages rebuilt to close sales, not just display inventory." },
+          ].map((item) => (
+            <div class="bg-black-800 border border-white-100/5 p-6">
+              <span class="text-brass-500 font-bold text-xs uppercase tracking-widest font-sans">{item.num}</span>
+              <h3 class="text-white-100 font-bold text-lg mt-2 mb-2">{item.title}</h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-sans">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="bg-black-950 py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Proof Work</p>
+        <h2 class="text-3xl font-bold text-white-100 mb-10">Sites We've Built or Fixed</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { client: "NTAC", result: "Full landing page and SEO build for Nielsen Training. Course pages structured for Google ranking. Beginner Handgun page rebuilt from scratch with proper H1-H3 structure and conversion copy." },
+            { client: "Peak Defense Works", result: "Full Shopify build from scratch. Product story, media framework, and site architecture built to convert traffic into buyers." },
+            { client: "Iron Rescue", result: "Google Business optimization and local SEO. Review collection system built. Site copy rewritten around Easton's TECC and Army Medic credibility." },
+          ].map((p) => (
+            <div class="border-t-2 border-brass-500 pt-6">
+              <p class="text-brass-500 font-bold text-sm uppercase tracking-wider mb-3 font-sans">{p.client}</p>
+              <p class="text-white-200/70 text-sm leading-relaxed font-sans">{p.result}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-black-900 py-20 border-t border-white-100/5">
+      <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-white-100 mb-4">Let's Fix What's Broken</h2>
+        <p class="text-white-200/60 text-lg mb-8 font-sans">Send us your site. We'll tell you exactly what's holding it back.</p>
+        <a href="/contact" class="inline-block bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
+          Get a Free Site Audit
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

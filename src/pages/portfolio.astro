@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const items = [
+  { category: "social", img: "/images/still-1.jpg",          label: "NTAC Range Day Hype Reel" },
+  { category: "social", img: "/images/still-2.jpg",          label: "Iron Rescue Social Content" },
+  { category: "social", img: "/images/still-3.jpg",          label: "The Art Room — 170K Views" },
+  { category: "social", img: "/images/services-social.jpg",  label: "Tactical Content Series" },
+  { category: "course", img: "/images/services-courses.jpg", label: "NTAC Beginner Handgun Promo" },
+  { category: "course", img: "/images/about-action.jpg",     label: "The Art Room Course Promo" },
+  { category: "course", img: "/images/noah-rifle.jpg",       label: "Iron Rescue TECC Documentation" },
+  { category: "product", img: "/images/services-products.jpg", label: "Rifle and Optic Product Shoot" },
+  { category: "product", img: "/images/services-sales.jpg",  label: "Gear Lifestyle Photography" },
+  { category: "website", img: "/images/about-photo.jpg",     label: "NTAC Website Rebuild" },
+  { category: "website", img: "/images/cta-bg.jpg",          label: "Peak Defense Works Shopify" },
+];
+---
+
+<Layout title="Portfolio | Blackout Media" description="Work samples from Blackout Media — social media, course promos, product photography, and website builds for the firearms industry.">
+  <Nav />
+  <main>
+
+    <!-- Header -->
+    <section class="bg-black-950 pt-32 pb-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Our Work</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white-100 mb-4">Portfolio</h1>
+        <p class="text-white-200/60 text-xl font-sans max-w-xl">Work produced for firearms ranges, training companies, and manufacturers.</p>
+      </div>
+    </section>
+
+    <!-- Filter + Grid -->
+    <section class="bg-black-950 pb-24">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap gap-2 mb-10" id="filters">
+          {[
+            { key: "all",     label: "All Work" },
+            { key: "social",  label: "Social Media" },
+            { key: "course",  label: "Course Promo" },
+            { key: "product", label: "Product Media" },
+            { key: "website", label: "Website" },
+          ].map((f) => (
+            <button
+              data-filter={f.key}
+              class={`filter-btn px-5 py-2 text-xs uppercase tracking-wider font-bold font-sans border transition-colors ${f.key === 'all' ? 'bg-brass-500 border-brass-500 text-black-950' : 'bg-transparent border-white-100/20 text-gray-400 hover:border-brass-500 hover:text-brass-500'}`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1" id="portfolio-grid">
+          {items.map((item) => (
+            <div
+              data-category={item.category}
+              class="portfolio-item relative group overflow-hidden aspect-square"
+            >
+              <img
+                src={item.img}
+                alt={item.label}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
+                <p class="text-white-100 font-bold text-sm uppercase tracking-wider p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
+                  {item.label}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = (btn as HTMLElement).dataset.filter;
+
+      btns.forEach((b) => {
+        b.classList.remove('bg-brass-500', 'border-brass-500', 'text-black-950');
+        b.classList.add('bg-transparent', 'border-white-100/20', 'text-gray-400');
+      });
+      btn.classList.add('bg-brass-500', 'border-brass-500', 'text-black-950');
+      btn.classList.remove('bg-transparent', 'border-white-100/20', 'text-gray-400');
+
+      items.forEach((item) => {
+        const el = item as HTMLElement;
+        if (filter === 'all' || el.dataset.category === filter) {
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
