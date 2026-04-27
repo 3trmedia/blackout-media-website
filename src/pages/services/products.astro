@@ -9,68 +9,72 @@ import Footer from '../../components/Footer.astro';
   <main>
 
     <!-- Hero -->
-    <section class="relative min-h-[60vh] flex items-end overflow-hidden">
+    <section class="relative min-h-[65vh] flex items-end overflow-hidden">
       <div class="absolute inset-0">
         <img src="/images/services-products.jpg" alt="Product Media" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black-950/60"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-black-950/55"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/30 to-transparent"></div>
       </div>
-      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-16 pt-32">
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-20 pt-32">
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Product Media</p>
         <h1 class="text-5xl md:text-6xl font-bold text-white-100 leading-tight mb-4">
           Your Product Photos<br />Are Costing You Sales
         </h1>
-        <p class="text-white-200/65 text-xl font-sans">Gear that looks like it belongs in a catalog sells. Gear that looks like a cell phone shot doesn't.</p>
+        <p class="text-white-200/65 text-xl font-sans max-w-xl">Gear that looks like it belongs in a catalog sells. Gear that looks like a cell phone shot doesn't.</p>
       </div>
     </section>
 
-    <!-- Who this is for -->
-    <section class="bg-black-950 py-20">
-      <div class="max-w-4xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Who This Is For</p>
-        <p class="text-white-200/75 text-xl leading-relaxed font-sans">
-          Manufacturers, retailers, and ranges who know their product is quality but whose photos don't show it. If your gear is sitting on a plastic table in front of a garage wall, you're competing with brands that invest in presentation — and losing.
-        </p>
+    <!-- Work gallery — images lead -->
+    <section class="bg-black-950 pt-20 pb-4">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-8 font-sans">Work Samples</p>
+      </div>
+    </section>
+    <section class="bg-black-950 pb-20">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
+        {[
+          { img: '/images/services-products.jpg', label: 'Rifle and Optics', sub: 'Studio Shoot' },
+          { img: '/images/noah-rifle.jpg', label: 'Field Carry', sub: 'Lifestyle Series' },
+          { img: '/images/services-sales.jpg', label: 'Gear Lifestyle', sub: 'Field Photography' },
+          { img: '/images/about-photo.jpg', label: 'In the Field', sub: 'Brand Content' },
+        ].map((item) => (
+          <div class="relative group aspect-square overflow-hidden">
+            <img src={item.img} alt={item.label} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
+              <div class="p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <p class="text-white-100 font-bold text-sm uppercase tracking-wider font-sans">{item.label}</p>
+                <p class="text-brass-500 text-xs mt-1 font-sans">{item.sub}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
-    <!-- What's included -->
+    <!-- Three formats -->
     <section class="bg-black-900 py-20">
       <div class="max-w-5xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-12">Three Shoot Formats. All Deliverable-Ready.</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Shoot Formats</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-10">Three Formats. All Deliverable-Ready.</h2>
+        <div class="flex flex-col divide-y divide-white-100/5">
           {[
-            { num: "01", title: "Studio", desc: "Clean, controlled product photography optimized for websites, e-commerce, and ads. Consistent lighting. No distractions." },
-            { num: "02", title: "Field and Lifestyle", desc: "Your gear in the environment it was built for. Tactical, real, and built to perform on social media and brand campaigns." },
-            { num: "03", title: "Short-Form Product Video", desc: "15-60 second product showcases built for Instagram Reels, YouTube Shorts, and website embeds. Edited and delivered ready to post." },
+            { num: "01", title: "Studio", tag: "E-Commerce · Ads · Website" },
+            { num: "02", title: "Field and Lifestyle", tag: "Social · Brand Campaigns" },
+            { num: "03", title: "Short-Form Product Video", tag: "Reels · Shorts · Embeds" },
           ].map((item) => (
-            <div class="bg-black-800 border border-white-100/5 p-6">
-              <span class="text-brass-500 font-bold text-xs uppercase tracking-widest font-sans">{item.num}</span>
-              <h3 class="text-white-100 font-bold text-lg mt-2 mb-2">{item.title}</h3>
-              <p class="text-gray-400 text-sm leading-relaxed font-sans">{item.desc}</p>
+            <div class="flex items-center gap-6 py-5">
+              <span class="text-brass-500 font-bold text-xs font-sans w-6 flex-shrink-0">{item.num}</span>
+              <p class="text-white-100 font-bold text-lg flex-1">{item.title}</p>
+              <span class="text-gray-400 text-xs uppercase tracking-wider font-sans hidden sm:block">{item.tag}</span>
             </div>
           ))}
         </div>
-        <p class="text-gray-400 text-sm mt-8 font-sans">All assets delivered in web, social, and print-ready formats. No extra editing fees.</p>
-      </div>
-    </section>
-
-    <!-- Proof -->
-    <section class="bg-black-950 py-20">
-      <div class="max-w-5xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Work Samples</p>
-        <h2 class="text-3xl font-bold text-white-100 mb-10">Gear We've Captured</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <img src="/images/services-products.jpg" alt="Product media sample" class="w-full aspect-video object-cover" />
-          <img src="/images/noah-rifle.jpg" alt="Field media sample" class="w-full aspect-video object-cover" />
-        </div>
-        <p class="text-gray-400 text-sm mt-6 font-sans">Full portfolio available on the <a href="/portfolio" class="text-brass-500 hover:text-brass-400 transition-colors">Portfolio page</a>.</p>
+        <p class="text-gray-400 text-sm mt-8 font-sans">All assets delivered in web, social, and print-ready formats.</p>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-black-900 py-20 border-t border-white-100/5">
+    <section class="bg-black-950 py-20 border-t border-white-100/5">
       <div class="max-w-2xl mx-auto px-6 text-center">
         <h2 class="text-3xl font-bold text-white-100 mb-4">Let's Make Your Gear Look the Part</h2>
         <p class="text-white-200/60 text-lg mb-8 font-sans">Tell us what you're shooting and what you need it for. We'll handle the rest.</p>
