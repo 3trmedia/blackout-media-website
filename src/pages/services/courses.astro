@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
@@ -8,98 +9,171 @@ import Footer from '../../components/Footer.astro';
   <Nav />
   <main>
 
-    <!-- Hero -->
-    <section class="relative min-h-[65vh] flex items-end overflow-hidden">
+    <!-- 1. HERO -->
+    <section class="relative min-h-[80vh] flex items-center overflow-hidden">
       <div class="absolute inset-0">
-        <img src="/images/services-courses.jpg" alt="Course Marketing" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black-950/60"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/30 to-transparent"></div>
+        <img src="/images/services-courses.jpg" alt="Course Marketing for Firearms Training" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black-950/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black-950/85 via-black-950/50 to-black-950/20"></div>
       </div>
-      <div class="relative z-10 max-w-5xl mx-auto px-6 pb-20 pt-32">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">Course Marketing</p>
-        <h1 class="text-5xl md:text-6xl font-bold text-white-100 leading-tight mb-4">
-          Your Course Is Good.<br />People Just Don't Know It.
+      <div class="relative z-10 max-w-5xl mx-auto px-6 pt-24">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white-100 leading-tight mb-5 max-w-3xl">
+          Your Course Fills Seats When People Know It Exists.
         </h1>
-        <p class="text-white-200/65 text-xl font-sans max-w-xl">We create the demand. You fill the seats.</p>
+        <h2 class="text-2xl md:text-3xl font-medium text-white-200/70 mb-10 max-w-xl leading-snug">
+          We Build the Demand. You Run the Class.
+        </h2>
+        <a href="/contact" class="inline-flex items-center gap-2 bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-8 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
+          Let's Talk
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </section>
 
-    <!-- Stats strip -->
-    <section class="bg-black-900 border-b border-white-100/5">
-      <div class="max-w-5xl mx-auto px-6 py-12 grid grid-cols-3 divide-x divide-white-100/10 text-center">
-        <div class="px-8">
-          <p class="text-5xl font-black text-brass-500 font-heading">170K+</p>
-          <p class="text-gray-400 text-xs uppercase tracking-wider mt-2 font-sans">Views on First Video</p>
-        </div>
-        <div class="px-8">
-          <p class="text-5xl font-black text-brass-500 font-heading">$0</p>
-          <p class="text-gray-400 text-xs uppercase tracking-wider mt-2 font-sans">Paid Promotion</p>
-        </div>
-        <div class="px-8">
-          <p class="text-5xl font-black text-brass-500 font-heading">3</p>
-          <p class="text-gray-400 text-xs uppercase tracking-wider mt-2 font-sans">Active Training Partners</p>
-        </div>
-      </div>
-    </section>
+    <!-- 2. PROBLEM STATEMENT — SPLIT -->
+    <section class="bg-black-950 border-t border-white-100/5">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
 
-    <!-- Work gallery -->
-    <section class="bg-black-950 pt-20 pb-4">
-      <div class="max-w-7xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-8 font-sans">Work Samples</p>
-      </div>
-    </section>
-    <section class="bg-black-950 pb-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
-        {[
-          { img: '/images/services-courses.jpg', label: 'NTAC', sub: 'Course Promo Series' },
-          { img: '/images/about-action.jpg', label: 'The Art Room', sub: '170K Views Organic' },
-          { img: '/images/noah-rifle.jpg', label: 'Iron Rescue', sub: 'TECC Documentation' },
-        ].map((item) => (
-          <div class="relative group overflow-hidden" style="aspect-ratio: 4/3;">
-            <img src={item.img} alt={item.label} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
-              <div class="p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p class="text-white-100 font-bold text-sm uppercase tracking-wider font-sans">{item.label}</p>
-                <p class="text-brass-500 text-xs mt-1 font-sans">{item.sub}</p>
+        <!-- Image -->
+        <div class="relative min-h-[420px] lg:min-h-0">
+          <img src="/images/still-1.jpg" alt="Firearms training course in action" class="w-full h-full object-cover absolute inset-0" />
+          <div class="absolute inset-0 bg-black-950/25"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="px-10 lg:px-16 py-20 flex flex-col justify-center bg-black-950">
+          <h2 class="text-3xl md:text-4xl font-bold text-white-100 leading-tight mb-5">
+            Great Instructors Don't Always Have Time to Be Marketers.
+          </h2>
+          <p class="text-white-200/60 text-lg font-sans leading-relaxed mb-8">
+            Most training companies run exceptional programs that the right people never hear about. Word of mouth fills some seats. A real content strategy fills the rest. We build the demand creation side so you can stay focused on instruction.
+          </p>
+          <div class="flex flex-col gap-4">
+            {[
+              "Promo content built to convert curious browsers into paying students",
+              "Platform-safe promotion that won't get your account flagged or buried",
+              "A consistent presence that builds trust before they ever show up",
+            ].map((item) => (
+              <div class="flex items-start gap-4">
+                <div class="w-5 h-5 rounded-full bg-brass-500/15 border border-brass-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-2.5 h-2.5 text-brass-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <p class="text-white-200/70 text-base font-sans leading-relaxed">{item}</p>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
       </div>
     </section>
 
-    <!-- Deliverables list -->
-    <section class="bg-black-900 py-20">
-      <div class="max-w-5xl mx-auto px-6">
-        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Delivered</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-10">From Course to Content Ecosystem</h2>
-        <div class="flex flex-col divide-y divide-white-100/5">
+    <!-- 3. WORK EXAMPLES GRID -->
+    <section class="bg-black-900 py-20 border-t border-white-100/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Work Examples</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            { num: "01", title: "Course Promo Video", tag: "High Production" },
-            { num: "02", title: "Social Media Campaign", tag: "Short-Form Series" },
-            { num: "03", title: "Landing Page Copy and SEO", tag: "Google-Ready" },
-            { num: "04", title: "Student Testimonial Capture", tag: "Social Proof" },
+            { img: '/images/services-courses.jpg', client: 'NTAC' },
+            { img: '/images/about-action.jpg',     client: 'The Art Room' },
+            { img: '/images/noah-rifle.jpg',       client: 'Iron Rescue' },
+            { img: '/images/still-1.jpg',          client: 'NTAC' },
+            { img: '/images/still-2.jpg',          client: 'Iron Rescue' },
+            { img: '/images/still-3.jpg',          client: 'The Art Room' },
           ].map((item) => (
-            <div class="flex items-center gap-6 py-5">
-              <span class="text-brass-500 font-bold text-xs font-sans w-6 flex-shrink-0">{item.num}</span>
-              <p class="text-white-100 font-bold text-lg flex-1">{item.title}</p>
-              <span class="text-gray-400 text-xs uppercase tracking-wider font-sans hidden sm:block">{item.tag}</span>
+            <div>
+              <div class="aspect-video overflow-hidden bg-black-800">
+                <img src={item.img} alt={item.client} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- 4. WHAT'S INCLUDED — 6 ICON CARDS -->
     <section class="bg-black-950 py-20 border-t border-white-100/5">
-      <div class="max-w-2xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold text-white-100 mb-4">Let's Fill Your Next Class</h2>
-        <p class="text-white-200/60 text-lg mb-8 font-sans">Tell us about your course. We'll show you what a full content rollout looks like.</p>
-        <a href="/contact" class="inline-block bg-brass-500 hover:bg-brass-400 text-black-950 font-bold px-10 py-4 uppercase tracking-wider text-sm transition-colors font-sans">
-          Get in Touch
-        </a>
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-4 font-sans">What's Included</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white-100 mb-14">Everything You Need. Nothing You Don't.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white-100/5">
+
+          <!-- Card 1 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Course Promo Video</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">High-production video that sells the experience before students ever show up.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Social Media Campaign</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Short-form content series built around your course — teasers, class footage, and student POV.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Landing Page Copy and SEO</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Your course page rewritten to rank on Google and convert when people arrive.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Student Testimonial Capture</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">We capture testimonials on filming days and turn them into social-ready proof content.</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Email and Enrollment Sequences</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Follow-up messaging and course announcements built to fill seats and keep students coming back.</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="bg-black-950 p-10">
+            <div class="text-brass-500 mb-7">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-white-100 font-bold text-xl mb-3">Ongoing Content Calendar</h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-sans">Monthly planning built around your schedule, your courses, and what's actually moving enrollment.</p>
+          </div>
+
+        </div>
       </div>
     </section>
+
+    <!-- 5. CONTACT FORM -->
+    <Contact />
 
   </main>
   <Footer />
