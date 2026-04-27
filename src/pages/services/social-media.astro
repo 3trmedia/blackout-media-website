@@ -32,12 +32,42 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- 2. PROBLEM STATEMENT -->
-    <section class="bg-black-950 py-28 border-t border-white-100/5">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white-100 leading-tight">
-          You Run Your Business.<br />We'll Create the Content.
-        </h2>
+    <!-- 2. PROBLEM STATEMENT — SPLIT -->
+    <section class="bg-black-950 border-t border-white-100/5">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+
+        <!-- Image -->
+        <div class="relative min-h-[420px] lg:min-h-0">
+          <img src="/images/about-action.jpg" alt="Filming on location" class="w-full h-full object-cover absolute inset-0" />
+          <div class="absolute inset-0 bg-black-950/25"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="px-10 lg:px-16 py-20 flex flex-col justify-center bg-black-950">
+          <h2 class="text-3xl md:text-4xl font-bold text-white-100 leading-tight mb-5">
+            You Run Your Business.<br />We'll Create the Content.
+          </h2>
+          <p class="text-white-200/60 text-lg font-sans leading-relaxed mb-8">
+            Most brands know they need to post. Few have the time or the expertise to do it right. We close that gap — without pulling you away from the work that actually runs your business.
+          </p>
+          <div class="flex flex-col gap-4">
+            {[
+              "Platform-compliant content built specifically for the firearms space",
+              "Consistent posting without touching your schedule",
+              "Messaging that builds your brand and moves people to act",
+            ].map((item) => (
+              <div class="flex items-start gap-4">
+                <div class="w-5 h-5 rounded-full bg-brass-500/15 border border-brass-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-2.5 h-2.5 text-brass-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <p class="text-white-200/70 text-base font-sans leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
 
