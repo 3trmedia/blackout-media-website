@@ -4,12 +4,25 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
 }
 
 const {
-  title = 'Blackout Media | Utah\'s Firearms Marketing Agency',
-  description = 'Blackout Media produces the content, social strategy, and digital presence that gun manufacturers, ranges, and training companies need to grow, without getting flagged, shadow banned, or outpaced.',
+  title = 'Blackout Media | Firearms & Tactical Content Production Agency',
+  description = 'Blackout Media produces cinematic video content and marketing for the firearms and tactical industry. We speak the culture, built by shooters for brands that demand credibility.',
+  ogTitle,
+  ogDescription,
+  ogImage = '/images/og-default.jpg',
+  canonicalUrl,
 } = Astro.props;
+
+const resolvedOgTitle = ogTitle ?? title;
+const resolvedOgDescription = ogDescription ?? description;
+const siteUrl = 'https://www.blackout-media.com';
+const canonical = canonicalUrl ?? siteUrl;
 ---
 
 <!doctype html>
@@ -18,6 +31,22 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Blackout Media" />
+    <meta property="og:title" content={resolvedOgTitle} />
+    <meta property="og:description" content={resolvedOgDescription} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:url" content={canonical} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={resolvedOgTitle} />
+    <meta name="twitter:description" content={resolvedOgDescription} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
