@@ -55,7 +55,10 @@
       </div>
 
       <!-- Form -->
-      <form class="space-y-4" name="contact" method="POST" data-netlify="true">
+      <form class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7e876c69-796a-4154-a7fa-15d42d649a2c" />
+        <input type="hidden" name="subject" value="New Contact Form Submission — Blackout Media" />
+        <input type="hidden" name="redirect" value="false" />
         <div>
           <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="name">Name</label>
           <input
