@@ -15,6 +15,25 @@
           You built this business to do what you do best, not to spend your evenings figuring out what to post. We step in as your full marketing team so you can stay focused on what actually moves the needle.
         </p>
 
+        <!-- Bullet grid -->
+        <div class="grid grid-cols-2 gap-x-8 gap-y-3.5 mb-10">
+          {[
+            "No Templates. Every Post Is Custom.",
+            "Google SEO Ranking",
+            "Content Filmed on Location",
+            "Tailored Social Media Strategy",
+            "Monthly Analytics Review",
+            "One Point of Contact. Full Coverage.",
+          ].map((item) => (
+            <div class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-brass-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-white-200/70 text-sm leading-snug font-sans">{item}</span>
+            </div>
+          ))}
+        </div>
+
         <!-- Stats -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 pb-10 border-b border-white-100/8">
           {[
