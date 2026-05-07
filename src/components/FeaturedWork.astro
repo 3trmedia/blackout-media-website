@@ -1,0 +1,45 @@
+---
+const work = [
+  { img: "/images/still-1.jpg",          client: "NTAC" },
+  { img: "/images/still-3.jpg",          client: "The Art Room" },
+  { img: "/images/noah-rifle.jpg",       client: "Iron Rescue" },
+  { img: "/images/about-action.jpg",     client: "Peak Defense Works" },
+  { img: "/images/services-products.jpg", client: "First Tactical" },
+  { img: "/images/services-courses.jpg", client: "NTAC" },
+];
+---
+
+<section class="bg-black-900 py-24 border-t border-white-100/5">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-14">
+      <p class="text-brass-500 text-xs font-bold uppercase tracking-[0.3em] mb-3 font-sans">Our Work</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white-100">Work That Speaks for Itself.</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12">
+      {work.map((item) => (
+        <div>
+          <div class="aspect-video overflow-hidden bg-black-800">
+            <img
+              src={item.img}
+              alt={item.client}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a
+        href="/portfolio"
+        class="inline-block border border-white-100/40 hover:border-brass-500 hover:text-brass-500 text-white-100 font-bold px-10 py-3.5 uppercase tracking-[0.15em] text-sm transition-colors font-sans"
+      >
+        View Full Portfolio
+      </a>
+    </div>
+
+  </div>
+</section>

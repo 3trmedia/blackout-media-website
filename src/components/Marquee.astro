@@ -1,0 +1,31 @@
+---
+const items = [
+  "Social Media Marketing",
+  "Commercial Videography",
+  "Course & Class Marketing",
+  "Product Photography & Video",
+  "Website Design & SEO",
+  "Graphic Design & Branding",
+];
+---
+
+<div class="overflow-hidden bg-black-900 border-t border-b border-white-100/8 py-3.5">
+  <div class="marquee-track flex items-center whitespace-nowrap">
+    {[...items, ...items].map((item) => (
+      <span class="flex items-center flex-shrink-0">
+        <span class="text-white-100/70 text-xs uppercase tracking-[0.28em] font-semibold font-sans px-7">{item}</span>
+        <span class="text-brass-500 text-sm select-none">&#10022;</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
