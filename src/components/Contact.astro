@@ -55,64 +55,90 @@
       </div>
 
       <!-- Form -->
-      <form class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="7e876c69-796a-4154-a7fa-15d42d649a2c" />
-        <input type="hidden" name="subject" value="New Contact Form Submission — Blackout Media" />
-        <input type="hidden" name="redirect" value="false" />
-        <div>
-          <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Your name"
-            class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm"
-          />
-        </div>
-        <div>
-          <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm"
-          />
-        </div>
-        <div>
-          <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="website">Website or Social</label>
-          <input
-            type="text"
-            id="website"
-            name="website"
-            placeholder="yoursite.com or @handle"
-            class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm"
-          />
-        </div>
-        <div>
-          <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows="5"
-            placeholder="Tell us about your business and what you're looking to achieve..."
-            class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm resize-none"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          class="w-full bg-brass-500 hover:bg-brass-400 text-black-950 font-black py-4 uppercase tracking-wider text-sm transition-colors flex items-center justify-center gap-2"
-        >
-          Send Message
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      <div id="form-wrapper">
+        <form id="contact-form" class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7e876c69-796a-4154-a7fa-15d42d649a2c" />
+          <input type="hidden" name="subject" value="New Contact Form Submission - Blackout Media" />
+          <input type="hidden" name="redirect" value="false" />
+          <div>
+            <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm"
+            />
+          </div>
+          <div>
+            <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm"
+            />
+          </div>
+          <div>
+            <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="website">Website or Social</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              placeholder="yoursite.com or @handle"
+              class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm"
+            />
+          </div>
+          <div>
+            <label class="block text-white-200/60 text-xs uppercase tracking-wider mb-2" for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Tell us about your business and what you're looking to achieve..."
+              class="w-full bg-black-800 border border-white-100/10 focus:border-brass-500 text-white-100 placeholder-gray-400 px-4 py-3 outline-none transition-colors text-sm resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-brass-500 hover:bg-brass-400 text-black-950 font-black py-4 uppercase tracking-wider text-sm transition-colors flex items-center justify-center gap-2"
+          >
+            Send Message
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Success message (hidden until submission) -->
+        <div id="form-success" class="hidden border border-brass-500/30 bg-brass-500/5 p-8 text-center">
+          <svg class="w-10 h-10 text-brass-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
-        </button>
-      </form>
+          <p class="text-white-100 font-black text-xl mb-2">Message Received.</p>
+          <p class="text-white-200/65 text-sm">Ben will be in touch shortly. We appreciate you reaching out.</p>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const success = document.getElementById('form-success');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    if (res.ok) {
+      form.style.display = 'none';
+      success?.classList.remove('hidden');
+    }
+  });
+</script>
