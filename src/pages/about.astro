@@ -31,39 +31,44 @@ import Footer from '../components/Footer.astro';
 
     <!-- Story -->
     <section class="bg-black-950 py-20">
-      <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div>
-          <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-6 font-sans">The Story</p>
-          <div class="space-y-5 text-white-200/70 text-lg leading-relaxed font-sans">
-            <p>
-              Blackout Media didn't start as a business plan. It started at a range day in Utah where I met a group of firearms instructors doing serious work and struggling to get anyone to pay attention to it.
-            </p>
-            <p>
-              I'd spent years building content systems for businesses across industries. When I started working with firearms clients, it became clear fast: the platforms were hostile, most agencies wouldn't take the risk, and the few that did had no idea how to communicate to this audience.
-            </p>
-            <p>
-              So I built Blackout Media specifically for this space. Not as a workaround. As a deliberate choice.
-            </p>
-            <p>
-              I hold TECC certification. I shoot regularly. I understand the culture, the gear, and the stakes. When I make content for a training company or a manufacturer, I'm not an outsider trying to translate. I'm already in the room.
-            </p>
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-12">
+          <!-- Image -->
+          <div class="relative min-h-[400px] lg:min-h-0">
+            <img src="/images/222A1413.jpg" alt="In the field" class="w-full h-full object-cover object-top absolute inset-0" />
+          </div>
+          <!-- Text -->
+          <div class="flex flex-col justify-center">
+            <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-6 font-sans">The Story</p>
+            <div class="space-y-5 text-white-200/70 text-lg leading-relaxed font-sans">
+              <p>
+                Blackout Media didn't start as a business plan. It started at a range day in Utah where I met a group of firearms instructors doing serious work and struggling to get anyone to pay attention to it.
+              </p>
+              <p>
+                I'd spent years building content systems for businesses across industries. When I started working with firearms clients, it became clear fast: the platforms were hostile, most agencies wouldn't take the risk, and the few that did had no idea how to communicate to this audience.
+              </p>
+              <p>
+                So I built Blackout Media specifically for this space. Not as a workaround. As a deliberate choice.
+              </p>
+              <p>
+                I hold TECC certification. I shoot regularly. I understand the culture, the gear, and the stakes. When I make content for a training company or a manufacturer, I'm not an outsider trying to translate. I'm already in the room.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="space-y-6">
-          <img src="/images/222A1413.jpg" alt="In the field" class="w-full aspect-[4/3] object-cover" />
-          <div class="grid grid-cols-2 gap-4">
-            {[
-              { label: "TECC Certified", sub: "Tactical Emergency Casualty Care" },
-              { label: "Active Shooter", sub: "Performance-oriented approach" },
-              { label: "Industry Embedded", sub: "Utah firearms community" },
-              { label: "Platform Compliant", sub: "No flags. No bans. Just growth." },
-            ].map((c) => (
-              <div class="bg-black-900 border border-white-100/5 p-4">
-                <p class="text-white-100 font-bold text-sm font-sans">{c.label}</p>
-                <p class="text-gray-400 text-xs mt-1 font-sans">{c.sub}</p>
-              </div>
-            ))}
-          </div>
+        <!-- Credential cards full-width below -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: "TECC Certified", sub: "Tactical Emergency Casualty Care" },
+            { label: "Active Shooter", sub: "Performance-oriented approach" },
+            { label: "Industry Embedded", sub: "Utah firearms community" },
+            { label: "Platform Compliant", sub: "No flags. No bans. Just growth." },
+          ].map((c) => (
+            <div class="bg-black-900 border border-white-100/5 p-4">
+              <p class="text-white-100 font-bold text-sm font-sans">{c.label}</p>
+              <p class="text-gray-400 text-xs mt-1 font-sans">{c.sub}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
