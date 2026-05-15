@@ -22,7 +22,7 @@ const {
 const resolvedOgTitle = ogTitle ?? title;
 const resolvedOgDescription = ogDescription ?? description;
 const siteUrl = 'https://www.blackout-media.com';
-const canonical = canonicalUrl ?? siteUrl;
+const canonical = canonicalUrl ?? Astro.url.href;
 ---
 
 <!doctype html>
@@ -52,6 +52,38 @@ const canonical = canonicalUrl ?? siteUrl;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+
+    <!-- JSON-LD slot for per-page schema overrides -->
+    <slot name="schema" />
+
+    <!-- Default Organization schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Blackout Media",
+      "url": "https://www.blackout-media.com",
+      "logo": "https://www.blackout-media.com/logos/blackout-icon-white.png",
+      "description": "Utah's dedicated firearms marketing agency specializing in social media content, video production, and website strategy for gun manufacturers, ranges, and training companies.",
+      "telephone": "801-900-3251",
+      "email": "info@blackout-media.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "801-900-3251",
+        "email": "info@blackout-media.com",
+        "contactType": "customer service"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "UT",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Utah"
+      }
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED66WQGL1T"></script>

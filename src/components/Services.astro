@@ -4,24 +4,28 @@ const services = [
     title: "Grow Your\nSocial Media",
     desc: "Platform-compliant content that builds real audiences without triggering shadowbans, flags, or restrictions.",
     img: "/images/services-social.jpg",
+    alt: "Tactical firearms social media content production for gun brands",
     href: "/services/social-media",
   },
   {
     title: "Fill Your\nCourses",
     desc: "Targeted video campaigns that put your training programs in front of qualified students ready to enroll.",
     img: "/images/services-courses.jpg",
+    alt: "Firearms instructor leading defensive handgun training course",
     href: "/services/courses",
   },
   {
     title: "Highlight Your\nProducts",
     desc: "Photo and video that showcases your gear the way it deserves: sharp, professional, and built to convert.",
     img: "/images/services-products.jpg",
+    alt: "Professional product photography of tactical gear and firearms accessories",
     href: "/services/products",
   },
   {
     title: "Increase Website\nConversions",
     desc: "Full-funnel strategies that turn your website and social presence into a consistent revenue engine.",
     img: "/images/services-sales.jpg",
+    alt: "Tactical gear lifestyle photography for website and digital marketing",
     href: "/services/website-conversions",
   },
 ];
@@ -38,7 +42,7 @@ const services = [
       >
         <img
           src={s.img}
-          alt={s.title.replace('\n', ' ')}
+          alt={s.alt}
           class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <!-- Permanent dark overlay for readability -->

@@ -44,7 +44,7 @@ import Footer from '../../components/Footer.astro';
 
         <!-- Image -->
         <div class="relative min-h-[420px] lg:min-h-0">
-          <img src="/images/about-action.jpg" alt="Filming on location" class="w-full h-full object-cover absolute inset-0" />
+          <img src="/images/about-action.jpg" alt="Blackout Media filming tactical firearms content on location" class="w-full h-full object-cover absolute inset-0" />
           <div class="absolute inset-0 bg-black-950/25"></div>
         </div>
 
@@ -83,16 +83,16 @@ import Footer from '../../components/Footer.astro';
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Work Examples</p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            { img: '/images/still-1.jpg',          client: 'NTAC' },
-            { img: '/images/still-2.jpg',          client: 'Iron Rescue' },
-            { img: '/images/still-3.jpg',          client: 'The Art Room' },
-            { img: '/images/services-social.jpg',  client: 'NTAC' },
-            { img: '/images/about-action.jpg',     client: 'Peak Defense Works' },
-            { img: '/images/noah-rifle.jpg',       client: 'Iron Rescue' },
+            { img: '/images/still-1.jpg',         client: 'NTAC',               alt: 'NTAC defensive pistol training course filmed by Blackout Media' },
+            { img: '/images/still-2.jpg',         client: 'Iron Rescue',         alt: 'Iron Rescue TECC emergency medical training content' },
+            { img: '/images/still-3.jpg',         client: 'The Art Room',        alt: 'The Art Room firearms range social media reel' },
+            { img: '/images/services-social.jpg', client: 'NTAC',               alt: 'Blackout Media producing social content at NTAC range day' },
+            { img: '/images/about-action.jpg',    client: 'Peak Defense Works',  alt: 'Peak Defense Works training footage captured on location' },
+            { img: '/images/noah-rifle.jpg',      client: 'Iron Rescue',         alt: 'Iron Rescue rifle training documentation for social media' },
           ].map((item) => (
             <div>
               <div class="aspect-video overflow-hidden bg-black-800">
-                <img src={item.img} alt={item.client} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <img src={item.img} alt={item.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
               <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
             </div>

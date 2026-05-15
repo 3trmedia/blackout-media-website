@@ -1,11 +1,11 @@
 ---
 const work = [
-  { img: "/images/still-1.jpg",          client: "NTAC" },
-  { img: "/images/still-3.jpg",          client: "The Art Room" },
-  { img: "/images/noah-rifle.jpg",       client: "Iron Rescue" },
-  { img: "/images/about-action.jpg",     client: "Peak Defense Works" },
-  { img: "/images/services-products.jpg", client: "First Tactical" },
-  { img: "/images/services-courses.jpg", client: "NTAC" },
+  { img: "/images/still-1.jpg",           client: "NTAC",               alt: "NTAC defensive pistol training course footage by Blackout Media" },
+  { img: "/images/still-3.jpg",           client: "The Art Room",        alt: "The Art Room firearms range 170K-view social media content" },
+  { img: "/images/noah-rifle.jpg",        client: "Iron Rescue",         alt: "Iron Rescue tactical rifle training documentation" },
+  { img: "/images/about-action.jpg",      client: "Peak Defense Works",  alt: "Peak Defense Works firearms training captured on location" },
+  { img: "/images/services-products.jpg", client: "First Tactical",      alt: "First Tactical gear product photography and media production" },
+  { img: "/images/services-courses.jpg",  client: "NTAC",                alt: "NTAC handgun course promo video content" },
 ];
 ---
 
@@ -23,7 +23,7 @@ const work = [
           <div class="aspect-video overflow-hidden bg-black-800">
             <img
               src={item.img}
-              alt={item.client}
+              alt={item.alt}
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>

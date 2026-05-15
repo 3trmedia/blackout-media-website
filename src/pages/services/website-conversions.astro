@@ -83,16 +83,16 @@ import Footer from '../../components/Footer.astro';
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Clients We've Built For</p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            { img: '/images/about-photo.jpg',      client: 'Peak Defense Works' },
-            { img: '/images/services-sales.jpg',   client: 'NTAC' },
-            { img: '/images/cta-bg.jpg',           client: 'Iron Rescue' },
-            { img: '/images/services-products.jpg',client: 'Peak Defense Works' },
-            { img: '/images/still-1.jpg',          client: 'NTAC' },
-            { img: '/images/about-action.jpg',     client: 'Iron Rescue' },
+            { img: '/images/about-photo.jpg',       client: 'Peak Defense Works', alt: 'Peak Defense Works Shopify website built by Blackout Media' },
+            { img: '/images/services-sales.jpg',    client: 'NTAC',               alt: 'NTAC website conversion strategy and digital presence' },
+            { img: '/images/cta-bg.jpg',            client: 'Iron Rescue',         alt: 'Iron Rescue website and Google Business optimization by Blackout Media' },
+            { img: '/images/services-products.jpg', client: 'Peak Defense Works', alt: 'Peak Defense Works product page and e-commerce build' },
+            { img: '/images/still-1.jpg',           client: 'NTAC',               alt: 'NTAC course landing page and SEO content strategy' },
+            { img: '/images/about-action.jpg',      client: 'Iron Rescue',         alt: 'Iron Rescue local SEO and course enrollment funnel' },
           ].map((item) => (
             <div>
               <div class="aspect-video overflow-hidden bg-black-800">
-                <img src={item.img} alt={item.client} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <img src={item.img} alt={item.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
               <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
             </div>
