@@ -4,17 +4,29 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 const items = [
-  { category: "social", img: "/images/still-1.jpg",          label: "NTAC Range Day Hype Reel" },
-  { category: "social", img: "/images/still-2.jpg",          label: "Iron Rescue Social Content" },
-  { category: "social", img: "/images/still-3.jpg",          label: "The Art Room: 170K Views" },
-  { category: "social", img: "/images/services-social.jpg",  label: "Tactical Content Series" },
-  { category: "course", img: "/images/services-courses.jpg", label: "NTAC Beginner Handgun Promo" },
-  { category: "course", img: "/images/about-action.jpg",     label: "The Art Room Course Promo" },
-  { category: "course", img: "/images/noah-rifle.jpg",       label: "Iron Rescue TECC Documentation" },
-  { category: "product", img: "/images/services-products.jpg", label: "Rifle and Optic Product Shoot" },
-  { category: "product", img: "/images/services-sales.jpg",  label: "Gear Lifestyle Photography" },
-  { category: "website", img: "/images/about-photo.jpg",     label: "NTAC Website Rebuild" },
-  { category: "website", img: "/images/cta-bg.jpg",          label: "Peak Defense Works Shopify" },
+  // NTAC
+  { category: "social", videoId: "tHixxe3-TMY", url: "https://youtube.com/shorts/tHixxe3-TMY", label: "NTAC Range Day Hype Reel" },
+  { category: "social", videoId: "L331ym3zaDM", url: "https://youtube.com/shorts/L331ym3zaDM", label: "NTAC Training Content" },
+  { category: "social", videoId: "wdmKtqEerrE", url: "https://youtube.com/shorts/wdmKtqEerrE", label: "NTAC Course Promo" },
+  // Iron Rescue
+  { category: "social", videoId: "8gnI4TjH89s", url: "https://youtube.com/shorts/8gnI4TjH89s", label: "Iron Rescue Social Content" },
+  { category: "social", videoId: "tACbnSZjb24", url: "https://youtube.com/shorts/tACbnSZjb24", label: "Iron Rescue Training Reel" },
+  { category: "social", videoId: "QSi4LMuywhs", url: "https://youtube.com/shorts/QSi4LMuywhs", label: "Iron Rescue TECC Content" },
+  { category: "social", videoId: "aQjAKf1zX5Y", url: "https://youtube.com/shorts/aQjAKf1zX5Y", label: "Iron Rescue Course Promo" },
+  { category: "social", videoId: "bo4NmAJUBSk", url: "https://youtube.com/shorts/bo4NmAJUBSk", label: "Iron Rescue Promo" },
+  { category: "social", videoId: "uH3W_2dGgD4", url: "https://youtube.com/shorts/uH3W_2dGgD4", label: "Iron Rescue Social" },
+  // The Art Room
+  { category: "social", videoId: "GUF35K2MjIo", url: "https://youtu.be/GUF35K2MjIo", label: "The Art Room: 170K Views" },
+  // Peak Defense Works
+  { category: "website", videoId: "Xt1wZXrDSKs", url: "https://youtu.be/Xt1wZXrDSKs", label: "Peak Defense Works" },
+  // Placeholders
+  { category: "social",   img: "/images/services-social.jpg",   label: "Tactical Content Series" },
+  { category: "course",   img: "/images/services-courses.jpg",  label: "NTAC Beginner Handgun Promo" },
+  { category: "course",   img: "/images/about-action.jpg",      label: "The Art Room Course Promo" },
+  { category: "course",   img: "/images/noah-rifle.jpg",        label: "Iron Rescue TECC Documentation" },
+  { category: "product",  img: "/images/services-products.jpg", label: "Rifle and Optic Product Shoot" },
+  { category: "product",  img: "/images/services-sales.jpg",    label: "Gear Lifestyle Photography" },
+  { category: "website",  img: "/images/about-photo.jpg",       label: "NTAC Website Rebuild" },
 ];
 ---
 
@@ -61,23 +73,79 @@ const items = [
 
         <!-- Grid -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1" id="portfolio-grid">
-          {items.map((item) => (
-            <div
-              data-category={item.category}
-              class="portfolio-item relative group overflow-hidden aspect-square"
-            >
-              <img
-                src={item.img}
-                alt={item.label}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
-                <p class="text-white-100 font-bold text-sm uppercase tracking-wider p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
-                  {item.label}
-                </p>
+          {items.map((item) => {
+            const imgSrc = item.videoId
+              ? `https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`
+              : item.img;
+            const isVideo = !!item.videoId;
+
+            const inner = (
+              <div
+                data-category={item.category}
+                class="portfolio-item relative group overflow-hidden aspect-square"
+              >
+                <img
+                  src={imgSrc}
+                  alt={item.label}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {isVideo && (
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-black-950/60 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+                      <svg class="w-4 h-4 text-white-100 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                )}
+                <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
+                  <p class="text-white-100 font-bold text-sm uppercase tracking-wider p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
+                    {item.label}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return isVideo ? (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" data-category={item.category} class="portfolio-item block">
+                <div class="relative group overflow-hidden aspect-square">
+                  <img
+                    src={imgSrc}
+                    alt={item.label}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-10 h-10 rounded-full bg-black-950/60 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+                      <svg class="w-4 h-4 text-white-100 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
+                    <p class="text-white-100 font-bold text-sm uppercase tracking-wider p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
+                      {item.label}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <div
+                data-category={item.category}
+                class="portfolio-item relative group overflow-hidden aspect-square"
+              >
+                <img
+                  src={imgSrc}
+                  alt={item.label}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/70 transition-colors duration-300 flex items-end">
+                  <p class="text-white-100 font-bold text-sm uppercase tracking-wider p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
+                    {item.label}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
       </div>
