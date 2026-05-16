@@ -38,7 +38,7 @@ import Footer from '../../components/Footer.astro';
 
         <!-- Image -->
         <div class="relative min-h-[500px] lg:min-h-0">
-          <img src="/images/still-1.jpg" alt="Firearms training course in action" class="w-full h-full object-cover absolute inset-0" />
+          <img src="/images/222A9801.jpg" alt="Firearms training course in action" class="w-full h-full object-cover absolute inset-0" />
           <div class="absolute inset-0 bg-black-950/25"></div>
         </div>
 
@@ -90,13 +90,39 @@ import Footer from '../../components/Footer.astro';
       <div class="max-w-7xl mx-auto px-6">
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Work Examples</p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {/* Real videos */}
+          <div class="video-item cursor-pointer group" data-video-id="GUF35K2MjIo">
+            <div class="aspect-video overflow-hidden bg-black-800 relative">
+              <img src="https://img.youtube.com/vi/GUF35K2MjIo/maxresdefault.jpg" alt="Utah's Challenge-Based Shooting Competitions | Welcome to The Art Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-black-950/60 border border-white-100/20 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200">
+                  <svg class="w-5 h-5 text-white-100 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/60 transition-colors duration-300 flex items-end">
+                <p class="text-white-100 font-bold text-xs uppercase tracking-wider p-3 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">The Art Room</p>
+              </div>
+            </div>
+          </div>
+          <div class="video-item cursor-pointer group" data-video-id="FVXzgmzPtr8">
+            <div class="aspect-video overflow-hidden bg-black-800 relative">
+              <img src="https://img.youtube.com/vi/FVXzgmzPtr8/maxresdefault.jpg" alt="Beginner Handgun Class Overview | Nielsen Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-black-950/60 border border-white-100/20 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200">
+                  <svg class="w-5 h-5 text-white-100 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/60 transition-colors duration-300 flex items-end">
+                <p class="text-white-100 font-bold text-xs uppercase tracking-wider p-3 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">Nielsen Training</p>
+              </div>
+            </div>
+          </div>
+          {/* Placeholders */}
           {[
             { img: '/images/services-courses.jpg', client: 'NTAC',         alt: 'NTAC handgun fundamentals course promotional video' },
             { img: '/images/about-action.jpg',     client: 'The Art Room',  alt: 'The Art Room pistol course promo captured at range' },
             { img: '/images/noah-rifle.jpg',       client: 'Iron Rescue',   alt: 'Iron Rescue TECC tactical training documentation' },
             { img: '/images/still-1.jpg',          client: 'NTAC',         alt: 'NTAC defensive shooting course in action' },
-            { img: '/images/still-2.jpg',          client: 'Iron Rescue',   alt: 'Iron Rescue emergency medical training course content' },
-            { img: '/images/still-3.jpg',          client: 'The Art Room',  alt: 'The Art Room firearms course promo footage' },
           ].map((item) => (
             <div>
               <div class="aspect-video overflow-hidden bg-black-800">
@@ -192,3 +218,40 @@ import Footer from '../../components/Footer.astro';
   </main>
   <Footer />
 </Layout>
+
+<!-- Video lightbox modal -->
+<div id="video-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" style="background: rgba(10,10,10,0.93);">
+  <button id="modal-close" class="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-white-100/60 hover:text-white-100 transition-colors" aria-label="Close">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  <div id="modal-inner" class="relative w-full max-w-4xl aspect-video">
+    <iframe id="modal-iframe" class="absolute inset-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('video-modal') as HTMLElement;
+  const iframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
+
+  function openModal(videoId: string) {
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.video-item').forEach((el) => {
+    el.addEventListener('click', () => openModal((el as HTMLElement).dataset.videoId!));
+  });
+
+  document.getElementById('modal-close')?.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
