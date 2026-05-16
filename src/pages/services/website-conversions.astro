@@ -44,7 +44,7 @@ import Footer from '../../components/Footer.astro';
 
         <!-- Image -->
         <div class="relative min-h-[420px] lg:min-h-0">
-          <img src="/images/about-photo.jpg" alt="Website strategy for firearms brands" class="w-full h-full object-cover absolute inset-0" />
+          <img src="/images/noah-rifle.jpg" alt="Website strategy for firearms brands" class="w-full h-full object-cover absolute inset-0" />
           <div class="absolute inset-0 bg-black-950/25"></div>
         </div>
 
@@ -81,12 +81,14 @@ import Footer from '../../components/Footer.astro';
     <section class="bg-black-900 py-20 border-t border-white-100/5">
       <div class="max-w-7xl mx-auto px-6">
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Clients We've Built For</p>
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
             { img: '/images/web-peak-defense.png', client: 'Peak Defense Works', alt: 'Peak Defense Works Shopify e-commerce site built by Blackout Media' },
             { img: '/images/web-ntac.png',         client: 'NTAC',               alt: 'NTAC defensive firearms training website designed by Blackout Media' },
             { img: '/images/web-iron-rescue.png',  client: 'Iron Rescue',        alt: 'Iron Rescue TECC training website designed by Blackout Media' },
-            { img: '/images/web-art-room.png',      client: 'The Art Room',       alt: 'The Art Room shooting sports website designed by Blackout Media' },
+            { img: '/images/web-art-room.png',     client: 'The Art Room',       alt: 'The Art Room shooting sports website designed by Blackout Media' },
+            { img: '/images/web-3tr.png',          client: '3TR Media',          alt: '3TR Media social media agency website designed by Blackout Media' },
+            { img: '/images/web-blackout.png',     client: 'Blackout Media',     alt: 'Blackout Media firearms marketing agency website' },
           ].map((item) => (
             <div class="site-preview cursor-pointer group" data-img={item.img} data-label={item.client}>
               <div class="aspect-video overflow-hidden bg-black-800 relative">
