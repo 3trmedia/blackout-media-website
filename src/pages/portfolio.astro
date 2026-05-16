@@ -70,8 +70,8 @@ const items = [
           ))}
         </div>
 
-        <!-- Masonry grid -->
-        <div class="columns-2 md:columns-3 lg:columns-4 gap-1" id="portfolio-grid">
+        <!-- Portfolio grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-1" id="portfolio-grid">
           {items.map((item) => {
             const isVideo = item.type === 'short' || item.type === 'video';
             const imgSrc = isVideo
@@ -81,10 +81,12 @@ const items = [
 
             return (
               <div
-                class="portfolio-item mb-1 break-inside-avoid"
+                class="portfolio-item"
                 data-category={item.category}
                 data-video-id={isVideo ? item.videoId : undefined}
                 data-video-type={isVideo ? item.type : undefined}
+                data-img={!isVideo ? (item as any).img : undefined}
+                data-img-type={!isVideo ? item.category : undefined}
               >
                 <div class={`relative group overflow-hidden cursor-pointer ${aspectClass}`}>
                   <img
@@ -137,6 +139,30 @@ const items = [
   </div>
 </div>
 
+<!-- Photo lightbox modal (centered, fits viewport) -->
+<div id="photo-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" style="background: rgba(10,10,10,0.93);">
+  <button id="photo-modal-close" class="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-white-100/60 hover:text-white-100 transition-colors" aria-label="Close">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  <img id="photo-modal-img" src="" alt="" class="max-w-full max-h-[85vh] w-auto h-auto object-contain block" />
+</div>
+
+<!-- Website screenshot modal (scrollable, full width) -->
+<div id="website-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" style="background: rgba(10,10,10,0.95);">
+  <div class="flex justify-center p-4 pt-12 min-h-full">
+    <button id="website-modal-close" class="fixed top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-white-100/60 hover:text-white-100 transition-colors" aria-label="Close">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="w-full max-w-4xl">
+      <img id="website-modal-img" src="" alt="" class="w-full h-auto block" />
+    </div>
+  </div>
+</div>
+
 <script>
   // Filter
   const btns = document.querySelectorAll('.filter-btn');
@@ -155,48 +181,93 @@ const items = [
       portfolioItems.forEach((item) => {
         const el = item as HTMLElement;
         const show = filter === 'all' || el.dataset.category === filter;
-        el.style.display = show ? 'block' : 'none';
+        el.style.display = show ? '' : 'none';
       });
     });
   });
 
-  // Lightbox
-  const modal = document.getElementById('video-modal') as HTMLElement;
+  // Video lightbox
+  const videoModal = document.getElementById('video-modal') as HTMLElement;
   const modalInner = document.getElementById('modal-inner') as HTMLElement;
   const iframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
 
-  function openModal(videoId: string, videoType: string) {
+  function openVideoModal(videoId: string, videoType: string) {
     if (videoType === 'short') {
       modalInner.className = 'relative w-full max-w-sm aspect-[9/16]';
     } else {
       modalInner.className = 'relative w-full max-w-4xl aspect-video';
     }
     iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    modal.classList.remove('hidden');
+    videoModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeModal() {
-    modal.classList.add('hidden');
+  function closeVideoModal() {
+    videoModal.classList.add('hidden');
     iframe.src = '';
     document.body.style.overflow = '';
   }
 
+  // Photo lightbox (centered, fits viewport)
+  const photoModal = document.getElementById('photo-modal') as HTMLElement;
+  const photoModalImg = document.getElementById('photo-modal-img') as HTMLImageElement;
+
+  function openPhotoModal(img: string, alt: string) {
+    photoModalImg.src = img;
+    photoModalImg.alt = alt;
+    photoModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePhotoModal() {
+    photoModal.classList.add('hidden');
+    photoModalImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  // Website screenshot modal (scrollable, full width)
+  const websiteModal = document.getElementById('website-modal') as HTMLElement;
+  const websiteModalImg = document.getElementById('website-modal-img') as HTMLImageElement;
+
+  function openWebsiteModal(img: string, alt: string) {
+    websiteModalImg.src = img;
+    websiteModalImg.alt = alt;
+    websiteModal.classList.remove('hidden');
+    websiteModal.scrollTop = 0;
+  }
+
+  function closeWebsiteModal() {
+    websiteModal.classList.add('hidden');
+    websiteModalImg.src = '';
+  }
+
+  // Wire up all portfolio item clicks
   portfolioItems.forEach((item) => {
     const el = item as HTMLElement;
     if (el.dataset.videoId) {
-      el.style.cursor = 'pointer';
+      el.addEventListener('click', () => openVideoModal(el.dataset.videoId!, el.dataset.videoType!));
+    } else if (el.dataset.img) {
       el.addEventListener('click', () => {
-        openModal(el.dataset.videoId!, el.dataset.videoType!);
+        if (el.dataset.imgType === 'website') {
+          openWebsiteModal(el.dataset.img!, el.querySelector('img')?.alt || '');
+        } else {
+          openPhotoModal(el.dataset.img!, el.querySelector('img')?.alt || '');
+        }
       });
     }
   });
 
-  document.getElementById('modal-close')?.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
+  // Close handlers
+  document.getElementById('modal-close')?.addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+
+  document.getElementById('photo-modal-close')?.addEventListener('click', closePhotoModal);
+  photoModal.addEventListener('click', (e) => { if (e.target === photoModal) closePhotoModal(); });
+
+  document.getElementById('website-modal-close')?.addEventListener('click', closeWebsiteModal);
+  websiteModal.addEventListener('click', (e) => { if (e.target === websiteModal) closeWebsiteModal(); });
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') { closeVideoModal(); closePhotoModal(); closeWebsiteModal(); }
   });
 </script>
