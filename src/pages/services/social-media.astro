@@ -89,20 +89,37 @@ import Footer from '../../components/Footer.astro';
     <section id="work-examples" class="bg-black-900 py-20 border-t border-white-100/5">
       <div class="max-w-7xl mx-auto px-6">
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Work Examples</p>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
           {[
-            { img: '/images/still-1.jpg',         client: 'NTAC',               alt: 'NTAC defensive pistol training course filmed by Blackout Media' },
-            { img: '/images/still-2.jpg',         client: 'Iron Rescue',         alt: 'Iron Rescue TECC emergency medical training content' },
-            { img: '/images/still-3.jpg',         client: 'The Art Room',        alt: 'The Art Room firearms range social media reel' },
-            { img: '/images/services-social.jpg', client: 'NTAC',               alt: 'Blackout Media producing social content at NTAC range day' },
-            { img: '/images/about-action.jpg',    client: 'Peak Defense Works',  alt: 'Peak Defense Works training footage captured on location' },
-            { img: '/images/noah-rifle.jpg',      client: 'Iron Rescue',         alt: 'Iron Rescue rifle training documentation for social media' },
+            { videoId: "tHixxe3-TMY", label: "Move Until You Have a Shot" },
+            { videoId: "L331ym3zaDM", label: "Close Quarters Battle Training with NTAC" },
+            { videoId: "wdmKtqEerrE", label: "CQB Class with Matt" },
+            { videoId: "QSi4LMuywhs", label: "Running Drills with Iron Rescue" },
+            { videoId: "aQjAKf1zX5Y", label: "Ropes Medical Rescue" },
+            { videoId: "ZAG1YsQuIFM", label: "Extreme Rappelling in Utah" },
+            { videoId: "2kmng-wbH_o", label: "Rappelling & Shooting with The Art Room" },
+            { videoId: "le59ALtuqBc", label: "The Art Room's Ultimate Training Experience" },
           ].map((item) => (
-            <div>
-              <div class="aspect-video overflow-hidden bg-black-800">
-                <img src={item.img} alt={item.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <div class="short-item cursor-pointer group" data-video-id={item.videoId}>
+              <div class="aspect-[9/16] overflow-hidden bg-black-800 relative">
+                <img
+                  src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
+                  alt={item.label}
+                  class="w-full h-full object-cover scale-[1.8] group-hover:scale-[1.89] transition-transform duration-500"
+                />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-12 h-12 rounded-full bg-black-950/60 border border-white-100/20 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200">
+                    <svg class="w-5 h-5 text-white-100 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/60 transition-colors duration-300 flex items-end">
+                  <p class="text-white-100 font-bold text-xs uppercase tracking-wider p-3 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
+                    {item.label}
+                  </p>
+                </div>
               </div>
-              <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
             </div>
           ))}
         </div>
@@ -192,3 +209,44 @@ import Footer from '../../components/Footer.astro';
   </main>
   <Footer />
 </Layout>
+
+<!-- Video lightbox modal -->
+<div id="video-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" style="background: rgba(10,10,10,0.93);">
+  <button id="modal-close" class="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-white-100/60 hover:text-white-100 transition-colors" aria-label="Close">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  <div id="modal-inner" class="relative w-full max-w-sm aspect-[9/16]">
+    <iframe id="modal-iframe" class="absolute inset-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('video-modal') as HTMLElement;
+  const modalInner = document.getElementById('modal-inner') as HTMLElement;
+  const iframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
+
+  function openModal(videoId: string) {
+    modalInner.className = 'relative w-full max-w-sm aspect-[9/16]';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.short-item').forEach((el) => {
+    el.addEventListener('click', () => {
+      openModal((el as HTMLElement).dataset.videoId!);
+    });
+  });
+
+  document.getElementById('modal-close')?.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
