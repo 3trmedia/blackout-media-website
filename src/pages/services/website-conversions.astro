@@ -189,7 +189,7 @@ import Footer from '../../components/Footer.astro';
 </Layout>
 
 <!-- Site preview lightbox -->
-<div id="site-modal" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12" style="background: rgba(10,10,10,0.95);">
+<div id="site-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" style="background: rgba(10,10,10,0.95);"><div class="flex justify-center p-4 pt-12 min-h-full">
   <button id="site-modal-close" class="fixed top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-white-100/60 hover:text-white-100 transition-colors" aria-label="Close">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -198,6 +198,7 @@ import Footer from '../../components/Footer.astro';
   <div class="w-full max-w-4xl">
     <p id="site-modal-label" class="text-brass-500 text-xs font-bold uppercase tracking-[0.3em] mb-4 font-sans"></p>
     <img id="site-modal-img" src="" alt="" class="w-full h-auto block" />
+  </div>
   </div>
 </div>
 
@@ -212,13 +213,11 @@ import Footer from '../../components/Footer.astro';
     siteModalLabel.textContent = label;
     siteModal.classList.remove('hidden');
     siteModal.scrollTop = 0;
-    document.body.style.overflow = 'hidden';
   }
 
   function closeSiteModal() {
     siteModal.classList.add('hidden');
     siteModalImg.src = '';
-    document.body.style.overflow = '';
   }
 
   document.querySelectorAll('.site-preview').forEach((el) => {
