@@ -91,7 +91,7 @@ const items = [
                   <img
                     src={imgSrc}
                     alt={item.label}
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    class={`w-full h-full object-cover transition-transform duration-500 ${item.type === 'short' ? 'scale-[1.8] group-hover:scale-[1.89]' : 'group-hover:scale-105'}`}
                   />
                   {isVideo && (
                     <div class="absolute inset-0 flex items-center justify-center">
