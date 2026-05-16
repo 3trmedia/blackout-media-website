@@ -81,18 +81,21 @@ import Footer from '../../components/Footer.astro';
     <section class="bg-black-900 py-20 border-t border-white-100/5">
       <div class="max-w-7xl mx-auto px-6">
         <p class="text-brass-500 text-xs font-semibold uppercase tracking-[0.3em] mb-10 font-sans">Clients We've Built For</p>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-2 gap-3">
           {[
-            { img: '/images/about-photo.jpg',       client: 'Peak Defense Works', alt: 'Peak Defense Works Shopify website built by Blackout Media' },
-            { img: '/images/services-sales.jpg',    client: 'NTAC',               alt: 'NTAC website conversion strategy and digital presence' },
-            { img: '/images/cta-bg.jpg',            client: 'Iron Rescue',         alt: 'Iron Rescue website and Google Business optimization by Blackout Media' },
-            { img: '/images/services-products.jpg', client: 'Peak Defense Works', alt: 'Peak Defense Works product page and e-commerce build' },
-            { img: '/images/still-1.jpg',           client: 'NTAC',               alt: 'NTAC course landing page and SEO content strategy' },
-            { img: '/images/about-action.jpg',      client: 'Iron Rescue',         alt: 'Iron Rescue local SEO and course enrollment funnel' },
+            { img: '/images/web-peak-defense.png', client: 'Peak Defense Works', alt: 'Peak Defense Works Shopify e-commerce site built by Blackout Media' },
+            { img: '/images/web-ntac.png',         client: 'NTAC',               alt: 'NTAC defensive firearms training website designed by Blackout Media' },
+            { img: '/images/web-iron-rescue.png',  client: 'Iron Rescue',        alt: 'Iron Rescue TECC training website designed by Blackout Media' },
+            { img: '/images/web-3tr.png',          client: '3TR Media',          alt: '3TR Media social media agency website designed by Blackout Media' },
           ].map((item) => (
-            <div>
-              <div class="aspect-video overflow-hidden bg-black-800">
-                <img src={item.img} alt={item.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <div class="site-preview cursor-pointer group" data-img={item.img} data-label={item.client}>
+              <div class="aspect-video overflow-hidden bg-black-800 relative">
+                <img src={item.img} alt={item.alt} class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black-950/0 group-hover:bg-black-950/55 transition-colors duration-300 flex items-center justify-center">
+                  <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brass-500 text-black-950 text-xs font-bold uppercase tracking-wider px-4 py-2 font-sans">
+                    View Full Site
+                  </span>
+                </div>
               </div>
               <p class="text-gray-400 text-xs uppercase tracking-wider mt-3 font-sans">{item.client}</p>
             </div>
@@ -184,3 +187,53 @@ import Footer from '../../components/Footer.astro';
   </main>
   <Footer />
 </Layout>
+
+<!-- Site preview lightbox -->
+<div id="site-modal" class="hidden fixed inset-0 z-50 flex items-start justify-center p-4 pt-12" style="background: rgba(10,10,10,0.95);">
+  <button id="site-modal-close" class="fixed top-5 right-5 z-10 w-10 h-10 flex items-center justify-center text-white-100/60 hover:text-white-100 transition-colors" aria-label="Close">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+  <div class="w-full max-w-4xl">
+    <p id="site-modal-label" class="text-brass-500 text-xs font-bold uppercase tracking-[0.3em] mb-4 font-sans"></p>
+    <img id="site-modal-img" src="" alt="" class="w-full h-auto block" />
+  </div>
+</div>
+
+<script>
+  const siteModal = document.getElementById('site-modal') as HTMLElement;
+  const siteModalImg = document.getElementById('site-modal-img') as HTMLImageElement;
+  const siteModalLabel = document.getElementById('site-modal-label') as HTMLElement;
+
+  function openSiteModal(img: string, label: string) {
+    siteModalImg.src = img;
+    siteModalImg.alt = label;
+    siteModalLabel.textContent = label;
+    siteModal.classList.remove('hidden');
+    siteModal.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSiteModal() {
+    siteModal.classList.add('hidden');
+    siteModalImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.site-preview').forEach((el) => {
+    el.addEventListener('click', () => {
+      const img = (el as HTMLElement).dataset.img!;
+      const label = (el as HTMLElement).dataset.label!;
+      openSiteModal(img, label);
+    });
+  });
+
+  document.getElementById('site-modal-close')?.addEventListener('click', closeSiteModal);
+  siteModal.addEventListener('click', (e) => {
+    if (e.target === siteModal) closeSiteModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSiteModal();
+  });
+</script>

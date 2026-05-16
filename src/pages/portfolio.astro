@@ -4,6 +4,9 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 const items = [
+  // Regular videos (16:9) — top of grid
+  { category: "social",  type: "video",       videoId: "GUF35K2MjIo", label: "The Art Room: 170K Views" },
+  { category: "social",  type: "video",       videoId: "MZJExXX7BbM", label: "Safe Haven Defense: Bulletproof Glass Demo" },
   // NTAC Shorts (9:16)
   { category: "social",  type: "short",       videoId: "tHixxe3-TMY", label: "NTAC Range Day Hype Reel" },
   { category: "social",  type: "short",       videoId: "L331ym3zaDM", label: "NTAC Training Content" },
@@ -16,9 +19,6 @@ const items = [
   { category: "social",  type: "short",       videoId: "2kmng-wbH_o", label: "Rappelling and Shooting with The Art Room" },
   { category: "course",  type: "short",       videoId: "le59ALtuqBc", label: "The Art Room: Ultimate Training" },
   { category: "course",  type: "short",       videoId: "L4QsDWz4d1A", label: "The Art Room: Night Vision Course" },
-  // Regular videos (16:9)
-  { category: "social",  type: "video",       videoId: "GUF35K2MjIo", label: "The Art Room: 170K Views" },
-  { category: "social",  type: "video",       videoId: "MZJExXX7BbM", label: "Safe Haven Defense: Bulletproof Glass Demo" },
   // Placeholders
   { category: "social",  type: "placeholder", img: "/images/services-social.jpg",   label: "Tactical Content Series" },
   { category: "course",  type: "placeholder", img: "/images/services-courses.jpg",  label: "NTAC Beginner Handgun Promo" },
@@ -78,11 +78,7 @@ const items = [
             const imgSrc = isVideo
               ? `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`
               : (item as any).img;
-            const aspectClass = item.type === 'short'
-              ? 'aspect-[9/16]'
-              : item.type === 'video'
-              ? 'aspect-video'
-              : 'aspect-square';
+            const aspectClass = 'aspect-square';
 
             return (
               <div
